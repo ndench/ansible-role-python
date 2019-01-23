@@ -1,0 +1,18 @@
+---
+language: python
+python: "2.7"
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker pull williamyeh/ansible:debian8
+  - docker pull williamyeh/ansible:ubuntu14.04
+
+script:
+  - make test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

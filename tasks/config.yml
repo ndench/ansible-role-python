@@ -1,0 +1,12 @@
+---
+
+- name: Configuring python
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart python
+  with_items:
+    - etc/python.conf

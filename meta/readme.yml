@@ -1,0 +1,25 @@
+---
+galaxy_name: Nathan Dench.python
+github_user: Nathan Dench
+github_name: ansible-role-python
+badges: |
+  [![Build Status](https://img.shields.io/travis/Nathan Dench/ansible-role-python.svg)](https://travis-ci.org/Nathan Dench/ansible-role-python)
+  [![Galaxy](http://img.shields.io/badge/galaxy-Nathan Dench.python-role-blue.svg)](https://galaxy.ansible.com/Nathan Dench/python)
+  [![GitHub Tags](https://img.shields.io/github/tag/Nathan Dench/ansible-role-python.svg)](https://github.com/Nathan Dench/ansible-role-python)
+  [![GitHub Stars](https://img.shields.io/github/stars/Nathan Dench/ansible-role-python.svg)](https://github.com/Nathan Dench/ansible-role-python)
+description: |
+  > * installs python
+  > * configures python
+  > * manages python
+  > * configures service
+after_dependencies: |
+  * dependency a
+  * dependency b
+after_handlers: |
+  ## A new section after the handler section
+
+  Lorem ipsum dolor sit atem ...
+after_usage: |
+  ## A new section after the usage section
+
+  Lorem ipsum dolor sit atem ...

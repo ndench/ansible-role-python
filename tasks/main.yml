@@ -1,0 +1,30 @@
+---
+
+- include: install.yml
+  tags:
+    - development
+    - install
+    - python
+    - python-install
+
+- include: config.yml
+  tags:
+    - development
+    - config
+    - python
+    - python-config
+
+- include: manage.yml
+  tags:
+    - development
+    - manage
+    - python
+    - python-manage
+
+- include: service.yml
+  tags:
+    - development
+    - service
+    - python
+    - python-service
+

@@ -1,0 +1,4 @@
+[clog]
+changelog = "CHANGELOG.md"
+repository = "https://github.com/Nathan Dench/ansible-role-python"
+from-latest-tag = true
