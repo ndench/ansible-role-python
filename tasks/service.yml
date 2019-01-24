@@ -1,7 +1,0 @@
----
-
-- name: Configuring service
-  service:
-    name: "{{ python_service_name }}"
-    state: "{{ python_service_state }}"
-    enabled: "{{ python_service_enabled }}"

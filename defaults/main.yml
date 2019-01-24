@@ -1,9 +1,2 @@
 ---
-# package name (version)
-python_package: python
-# service name
-python_service_name: python
-# start on boot
-python_service_enabled: yes
-# current state: started, stopped
-python_service_state: started
+python_version: 3.7

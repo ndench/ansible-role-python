@@ -1,2 +1,4 @@
-.DS_Store
-.vagrant
+.vagrant/
+*.log
+*.retry
+tests/roles

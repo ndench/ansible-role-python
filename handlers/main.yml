@@ -1,6 +1,0 @@
----
-- name: restart python
-  service:
-    name: "{{ python_service_name }}"
-    state: restarted
-  when: python_service_state != 'stopped'

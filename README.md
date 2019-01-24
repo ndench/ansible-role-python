@@ -1,42 +1,40 @@
-# Ansible Nathan Dench.python role
+# Ansible ndench.fakesqs role
 
-[![Build Status](https://img.shields.io/travis/Nathan Dench/ansible-role-python.svg)](https://travis-ci.org/Nathan Dench/ansible-role-python)
-[![Galaxy](http://img.shields.io/badge/galaxy-Nathan Dench.python-role-blue.svg)](https://galaxy.ansible.com/Nathan Dench/python)
-[![GitHub Tags](https://img.shields.io/github/tag/Nathan Dench/ansible-role-python.svg)](https://github.com/Nathan Dench/ansible-role-python)
-[![GitHub Stars](https://img.shields.io/github/stars/Nathan Dench/ansible-role-python.svg)](https://github.com/Nathan Dench/ansible-role-python)
+[![Build Status](https://img.shields.io/travis/ndench/ansible-role-fakesqs.svg)](https://travis-ci.org/ndench/ansible-role-fakesqs)
+[![Galaxy](http://img.shields.io/badge/galaxy-ndench.fakesqs-blue.svg)](https://galaxy.ansible.com/ndench/fakesqs)
+[![GitHub Tags](https://img.shields.io/github/tag/ndench/ansible-role-fakesqs.svg)](https://github.com/ndench/ansible-role-fakesqs)
 
-> `Nathan Dench.python` is an [Ansible](http://www.ansible.com) role which:
+> `ndench.fakesqs` is an [Ansible](http://www.ansible.com) role which:
 >
-> * installs python
-> * configures python
-> * manages python
-> * configures service
+> * installs [fakesqs](https://github.com/jubos/fake-s3)
+> * configures fakesqs service
+> * (optional) create fakesqs queue
+> * allows development against the SQS API
 
 ## Installation
 
 Using `ansible-galaxy`:
 
 ```shell
-$ ansible-galaxy install Nathan Dench.python
+$ ansible-galaxy install ndench.fakesqs
 ```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: Nathan Dench.python
+- src: ndench.fakesqs
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/Nathan Dench/ansible-role-python.git Nathan Dench.python
+$ git clone https://github.com/ndench/ansible-role-fakesqs.git ndench.fakesqs
 ```
 
 ## Dependencies
 
 * Ansible >= 2.4
-* dependency a
-* dependency b
+* {"role"=>"geerlingguy.ruby", "become"=>true}
 
 ## Variables
 
@@ -44,34 +42,17 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```yaml
 ---
-# package name (version)
-python_package: python
-# service name
-python_service_name: python
-# start on boot
-python_service_enabled: yes
-# current state: started, stopped
-python_service_state: started
+fakesqs_gem: fake_sqs
+fakesqs_service_enabled: yes
+fakesqs_service_state: started
+
+# Whether to create a queue
+fakesqs_create_queue: true
+fakesqs_queue_name: sqs_dev
+
 
 ```
 
-## Handlers
-
-These are the handlers that are defined in `handlers/main.yml`.
-
-```yaml
----
-- name: restart python
-  service:
-    name: "{{ python_service_name }}"
-    state: restarted
-  when: python_service_state != 'stopped'
-
-```
-
-## A new section after the handler section
-
-Lorem ipsum dolor sit atem ...
 
 ## Usage
 
@@ -80,26 +61,21 @@ This is an example playbook:
 ```yaml
 ---
 - hosts: all
-  # pre_tasks for installing dependencies for running the tests within docker
-  # pre_tasks:
-  #  - name: Installing openssh
-  #    action: "{{ ansible_pkg_mgr }} pkg=my-package state=present"
   roles:
-    - Nathan Dench.python
-  vars:
-    foo: bar
+    - ndench.fakesqs
 
 ```
 
-## A new section after the usage section
+# TODO
 
-Lorem ipsum dolor sit atem ...
+* get docker build working (vagrant works fine)
+  * issue is to do with docker not being able to run systemd or upstart
 
 ## Testing
 
 ```shell
-$ git clone https://github.com/Nathan Dench/ansible-role-python.git
-$ cd ansible-role-python
+$ git clone https://github.com/ndench/ansible-role-fakesqs.git
+$ cd ansible-role-fakesqs
 $ make test
 ```
 
@@ -120,4 +96,4 @@ $ ansible-role docgen
 ```
 
 ## License
-Copyright (c) Hyra iQ under the MIT license.
+Copyright (c)  under the MIT license.
