@@ -10,6 +10,10 @@
     repo: ppa:deadsnakes/ppa
     state: present
 
+- name: update cache
+  apt:
+    update_cache: yes
+
 - name: install python
   apt:
     name: "python{{ python_version }}"

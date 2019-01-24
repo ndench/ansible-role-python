@@ -1,40 +1,37 @@
-# Ansible ndench.fakesqs role
+# Ansible ndench.python role
 
-[![Build Status](https://img.shields.io/travis/ndench/ansible-role-fakesqs.svg)](https://travis-ci.org/ndench/ansible-role-fakesqs)
-[![Galaxy](http://img.shields.io/badge/galaxy-ndench.fakesqs-blue.svg)](https://galaxy.ansible.com/ndench/fakesqs)
-[![GitHub Tags](https://img.shields.io/github/tag/ndench/ansible-role-fakesqs.svg)](https://github.com/ndench/ansible-role-fakesqs)
+[![Build Status](https://img.shields.io/travis/ndench/ansible-role-python.svg)](https://travis-ci.org/ndench/ansible-role-python)
+[![Galaxy](http://img.shields.io/badge/galaxy-ndench.python-blue.svg)](https://galaxy.ansible.com/ndench/python)
+[![GitHub Tags](https://img.shields.io/github/tag/ndench/ansible-role-python.svg)](https://github.com/ndench/ansible-role-python)
 
-> `ndench.fakesqs` is an [Ansible](http://www.ansible.com) role which:
+> `ndench.python` is an [Ansible](http://www.ansible.com) role which:
 >
-> * installs [fakesqs](https://github.com/jubos/fake-s3)
-> * configures fakesqs service
-> * (optional) create fakesqs queue
-> * allows development against the SQS API
+> * installs [DeadSnakes PPA](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa)
+> * installs specified version of python
 
 ## Installation
 
 Using `ansible-galaxy`:
 
 ```shell
-$ ansible-galaxy install ndench.fakesqs
+$ ansible-galaxy install ndench.python
 ```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: ndench.fakesqs
+- src: ndench.python
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/ndench/ansible-role-fakesqs.git ndench.fakesqs
+$ git clone https://github.com/ndench/ansible-role-python.git ndench.python
 ```
 
 ## Dependencies
 
 * Ansible >= 2.4
-* {"role"=>"geerlingguy.ruby", "become"=>true}
 
 ## Variables
 
@@ -42,14 +39,7 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```yaml
 ---
-fakesqs_gem: fake_sqs
-fakesqs_service_enabled: yes
-fakesqs_service_state: started
-
-# Whether to create a queue
-fakesqs_create_queue: true
-fakesqs_queue_name: sqs_dev
-
+python_version: 3.7
 
 ```
 
@@ -62,20 +52,16 @@ This is an example playbook:
 ---
 - hosts: all
   roles:
-    - ndench.fakesqs
+    - ndench.python
 
 ```
 
-# TODO
-
-* get docker build working (vagrant works fine)
-  * issue is to do with docker not being able to run systemd or upstart
 
 ## Testing
 
 ```shell
-$ git clone https://github.com/ndench/ansible-role-fakesqs.git
-$ cd ansible-role-fakesqs
+$ git clone https://github.com/ndench/ansible-role-python.git
+$ cd ansible-role-python
 $ make test
 ```
 
