@@ -1,5 +1,5 @@
 ---
-- name: insall prerequisites
+- name: install prerequisites
   apt:
     name: software-properties-common
     update_cache: yes
